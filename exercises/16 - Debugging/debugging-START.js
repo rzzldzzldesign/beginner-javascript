@@ -4,9 +4,17 @@ const people = [
   { name: 'Snickers', cool: false, country: 'Dog Country' },
 ];
 
+// ? CONSOLE.GROUP bunches data together so it can be easily managed.
 people.forEach((person, index) => {
+  // Debugger: Pops in a break point to test code.
+  console.groupCollapsed(`${person.name}`);
   console.log(person.name);
+  console.log(person.cool);
+  console.log(person.country);
+  console.groupEnd(`${person.name}`);
 });
+
+// console.table(people);
 
 // Console Methods
 
@@ -23,8 +31,16 @@ people.forEach((person, index) => {
 // Break On Attribute
 
 // Some Setup Code
+function doABunchOfTasks() {
+  console.group('These things happened:');
+  console.log('Function is running');
+  console.error('DANGER! DANGER!');
+  console.warn('High Voltage!');
+  console.groupEnd('These things happened');
+}
 
 function doctorize(name) {
+  console.count(`Run Doctorize for ${name}`);
   return `Dr. ${name}`;
 }
 
