@@ -1,50 +1,34 @@
-// const age = 100;
-
-// function go() {
-//   const myAge = 200;
-//   const hair = 'blonde';
-//   console.log(age);
-//   console.log(myAge);
-//   console.log(hair);
+// GLOBALLY SCOPED
+// let cool;
+// if (1 === 1) {
+//    cool = true;
 // }
 
-// go();
-/* eslint-disable*/
+// console.log(cool);
 
-// function isCool(name) {
-//   if (name === 'wes') {
-//     var cool = true;
-//   }
-//   console.log(cool);
-//   return cool;
-// }
+// ? VAR is function scoped LET and CONST are block scoped.
 
-// for(let i = 0; i < 10; i++) {
-//   console.log(i);
-// }
-
-
-const dog = 'snickers';
-
-function logDog(dog) {
-  console.log(dog);
+function isCool(name) {
+  let cool;
+  if (name === 'Jay') {
+    cool = true;
+  } else {
+    cool = false;
+  }
+  console.log(cool);
+  return cool;
 }
 
+const dog = 'Peaches';
+
+function logDog() {
+  console.log(dog);
+}
 function go() {
-  const dog = 'sunny';
-  logDog('sunny');
+  const dog = 'Dixie';
+  logDog();
 }
 
 go();
 
-function yell() {
-  console.log(name.toUpperCase())
-}
-
-function sayHi(name) {
-
-  yell();
-}
-
-
-yell();
+// ! TRY NOT TO CREATE GLOBAL VARIABLES
