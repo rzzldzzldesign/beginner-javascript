@@ -1,31 +1,17 @@
-// Function Definition
+// FUNCTION DEFINITION
 function calculateBill(billAmount, taxRate = 0.13, tipRate = 0.15) {
-  // this is the function body
-  console.log('Running Calculate Bill!!');
+  console.log('Calculating Bill');
   const total = billAmount + billAmount * taxRate + billAmount * tipRate;
-  return total;
+  // RETURN VALUE THAT THE FUNCTION RETURNS
+  return Math.round(total);
 }
 
-// Function Call. Or **Run**
-const wesTotal = 500;
-const wesTaxRate = 0.3;
-// const myTotal = calculateBill(wesTotal, wesTaxRate);
+// FUNCTION CALL
+const myTotal = calculateBill(200);
+const myTotal2 = calculateBill(100, 0.135);
 
-// Function Definition
-function sayHiTo(firstName) {
-  return `Hello ${firstName}`;
-}
+console.log(`Your total is $${myTotal}`);
+console.log(`Your total is $${myTotal2}`);
 
-// const greeting = sayHiTo('Wes');
-// console.log(greeting);
-
-function doctorize(name) {
-  return `Dr. ${name}`;
-}
-
-function yell(name = 'Silly Goose') {
-  return `HEY ${name.toUpperCase()}`;
-}
-
-const myBill4 = calculateBill(100, undefined, 0.2);
-console.log(myBill4);
+// Calling function within the  string itself so no cathicing variable is needed.
+// console.log(`Your total is $${calculateBill()}`);

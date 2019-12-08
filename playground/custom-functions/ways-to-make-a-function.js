@@ -1,78 +1,84 @@
-// function doctorize(firstName) {
+// ?Regular Function Declaration (IS HOISTED):
+// function doctorize(firstName = 'Bob') {
+//   return `Dr. ${firstName}`;
+// }
+// ! [ = 'Bob'] ABOVE IS SETTING A DEFAULT ON THE ARGUMENT
+
+// ?Anonymous Function:
+// function (firstName = 'Bob') {
 //   return `Dr. ${firstName}`;
 // }
 
-// Anon Function
-// function (firstName) {
-//   return `Dr. ${firstName}`;
-// }
-
-// Function Expression
-// const doctorize = function(firstName) {
+// ?Function Expression (Storing a function as a variable )(IS NOT HOISTED!):
+// const doctorize = function(firstName = 'Bob') {
 //   return `Dr. ${firstName}`;
 // };
+// console.log(doctorize('Jay'));
 
-/* eslint-disable */
+// ?Arrow Functions
 const inchToCM = inches => inches * 2.54;
 
-// function add(a, b = 3) {
-//   const total = a + b;
-//   return total;
-// }
+console.log(inchToCM(3));
 
-// const add = (a, b = 3) => a + b;
+// ?TEST ARROW FUNCTION
+const doctorize = firstName => `Dr. ${firstName}`;
+const yell = firstName => firstName.toUpperCase();
 
-// returning an object
+console.log(yell(doctorize('Jay')));
 
-// function makeABaby(first, last) {
+// ?TEST AGAIN
+const add = (a, b = 3) => a + b;
+
+console.log(add(7, 20));
+
+/* eslint-disable */
+// ?Function creating an object
+// function makeABaby(firstName, lastName) {
 //   const baby = {
-//     name: `${first} ${last}`,
-//     age: 0
-//   }
-//   return baby;
+//     name: `${firstName} ${lastName}`,
+//     age: 0,
+//   };
+//   return baby
 // }
 
-const makeABaby = (first, last) => ({ name: `${first} ${last}`, age: 0 });
+// ?Convert to arrow function?
+const makeABaby = (firstName, lastName) => ({ name: `${firstName} ${lastName}`, age: 0 })
 
+console.log(makeABaby('Bing', 'Bong'));
 
-// IIFE
-// Immediately Invoked Function Expression
+// ?IIFE Function
+// Immediately Invoked Function Expresiion [Wrapped in () followed by (argument)]
+(function(howCool) {
+    console.log(`You are cool X${howCool}`)
+    return howCool
+})(9009)
 
-(function(age) {
-  return `You are cool and age ${age}`;
-})(10);
-
-// Methods!!!
-const wes = {
-  name: 'Westopher Bos',
-  // Method!
-  sayHi: function() {
-    console.log(`Hey ${this.name}`);
-    return 'Hey Wes';
-  },
-  // Short hand Method
-  yellHi() {
-    console.log('HEY WESSSSS');
-  },
-  // Arrow function
-  wisperHi: () => {
-    console.log('hii wesss im a mouse');
-  }
+// ?Methods!! [Function that lives inside of an Object]
+const jay = {
+    name: 'Jay',
+    // V This is the method within the jay object
+    sayHi: function() {
+        console.log('Hi!')
+    },
+    // V Shorthand to declare a method V
+    yellHi() {
+        console.log('HIIII FUCKER')
+    },
+    // Arrow function [Different scoping]
+    whisperHi: () => {
+        console.log('hiiiiii...')
+    }
 }
 
-// Callback Functions
+// ?Callback functions
 // Click Callback
 const button = document.querySelector('.clickMe');
-
 function handleClick() {
-  console.log('Great Clicking!!');
+    console.log('Clicked em!')
 }
-
-button.addEventListener('click', function() {
-  console.log('NIce Job!!!');
-});
+button.addEventListener('click', handleClick)
 
 // Timer Callback
-setTimeout(() => {
-  console.log('DONE! Time to eat!');
-}, 1000);
+setTimeout(function() {
+    console.log('Timer done!')
+}, 1000)
