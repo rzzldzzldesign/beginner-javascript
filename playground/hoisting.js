@@ -1,15 +1,12 @@
-/* esline-disable */
-let age;
-console.log(age);
-age = 10;
-
-/* What does this file do? */
+// ?WHAT DOES THIS FILE DO? [Some people put this at the top]
 sayHi();
 
-/* How does this file do it? */
+// ?HOW DOES THIS FILE DO IT?
 function sayHi() {
-  console.log('hey!');
+  console.log('Hi');
   console.log(add(10, 2));
 }
 
-const add = (a, b) => a + b;
+function add(a, b) {
+  return a + b;
+}
