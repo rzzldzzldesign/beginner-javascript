@@ -1,53 +1,65 @@
 const butts = document.querySelector('.butts');
-const coolButton = document.querySelector('.cool');
+const coolButts = document.querySelector('.cool');
 
-function handleClick() {
-  console.log('🐛 IT GOT CLICKED!!!');
-}
+// ?REGULAR FUNCTION DEFINITION v
+// function handleClick() {
+//   console.log('GOT CLICKED!');
+// }
+// butts.addEventListener('click', handleClick);
+// coolButts.addEventListener('click', handleClick);
 
-const hooray = () => console.log('HOORAY!');
+// ?ARROW FUNCTION v
+const handleClickArrowFunc = () => console.log('GOT CLICKED!');
+butts.addEventListener('click', handleClickArrowFunc);
+coolButts.addEventListener('click', handleClickArrowFunc);
+// console.log(buyButts);
 
-butts.addEventListener('click', function() {
-  console.log('Im an anon!');
-});
-coolButton.addEventListener('click', hooray);
+// function buyItem() {
+//   console.log('YOU BOUGHT IT!');
+// }
+// ? v 'buyButton' here can be named anything, it is the element being looped over.
+// function addBuyButtonListener(buyButton) {
+//   buyButton.addEventListener('click', buyItem);
+// }
+// buyButts.forEach(addBuyButtonListener);
 
-butts.removeEventListener('click', handleClick);
+// ? v Double arrow function way of setting it up. Cannot be UNBOUND.
+// const buyButts = document.querySelectorAll('.buy');
+// buyButts.forEach(button => {
+//     button.addEventListener('click', () => {
+//         console.log('BUYED IT (ARROW)');
+//     });
+// });
 
-// Listen on multiple items
-const buyButtons = document.querySelectorAll('button.buy');
+const buyButts = document.querySelectorAll('.buy');
 
 function handleBuyButtonClick(event) {
-  console.log('You clicked a button!');
-  const button = event.target;
-  // console.log(button.textContent);
-  // console.log(parseFloat(event.target.dataset.price));
-  console.log(event.target);
-  console.log(event.currentTarget);
-  console.log(event.target === event.currentTarget);
-  // Stop this event from bubbling up
-  // event.stopPropagation();
-}
+  //   const whatItem = event.target.textContent;
+  //   console.log(whatItem);
+  //   console.log(`THAT COST: ${parseInt(event.target.dataset.price)}`);
+  //   console.log(event.target);
+  console.log('BUTTON CLICKER');
 
-buyButtons.forEach(function(buyButton) {
+  console.log(event.currentTarget);
+  // ? This click event is "bubbling up" all the way to the window.
+  // ? To stop it:
+  event.stopPropagation();
+}
+buyButts.forEach(function(buyButton) {
   buyButton.addEventListener('click', handleBuyButtonClick);
 });
 
-window.addEventListener(
-  'click',
-  function(event) {
-    console.log('YOU CLICKED THE WINDOW');
-    console.log(event.target);
-    console.log(event.type);
-    // event.stopPropagation();
-    console.log(event.bubbles);
-  },
-  { capture: true }
-);
+// window.addEventListener(
+//   'click',
+//   event => {
+//     console.log('WINDOW CLICKER');
+//     console.log(event.target);
+//   },
+//   { capture: false }
+// );
 
-const photoEl = document.querySelector('.photo');
-
-photoEl.addEventListener('mouseenter', e => {
-  console.log(e.currentTarget);
+const image = document.querySelector('.image');
+image.addEventListener('mouseenter', function(event) {
+  console.log(event.currentTarget);
   console.log(this);
 });
