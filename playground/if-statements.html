@@ -9,28 +9,126 @@
 </head>
 
 <body>
-  * empty array
-  * empty object
+
+  <h2>TRUTHY</h2>
   * 1
-  * -10
+  * -10 all other number are truthy
+  * a string of "0" = any string evaluates to truthy
+  * empty array
   * full string
-  * a string of "0"
-  * 0
-  * undefined variable
-  * Variable set to null
+  * empty object
+
+  <h2>FALSY</h2>
+  * 0 is falsy
+  * undefined variable = no value yet
+  * Variable set to null = same again.
   * a variable set to `"hello" - 10` NaN
   * empty string
 
   <script>
+    // const age = 44;
+    // if (age > 70) {
+    //   console.log('YOU OLD');
+    // } else if (age > 50) {
+    //   console.log('YOU less OLD');
+    // } else {
+    //   console.log('you young af');
+    // }
 
-    function slugify(sentence, lowercase) {
-      let slug = sentence.replace(/\s/g, '-');
-      if (lowercase) {
-        return slug.toLowerCase();
-      }
-      return slug;
+    // function slugify(sentence, lowercase) {
+    //   const slug = sentence.replace(/\s/g, '-');
+    //   if (lowercase) {
+    //     return slug.toLowerCase();
+    //   }
+    //   return slug;
+    // }
+
+    // const name = 'Emma';
+    // const last = 'Hewitt';
+
+    // if (name.toLowerCase() === 'jay' || name.toLowerCase() === 'emma') {
+    //   console.log('Coool Name.');
+    // } else {
+    //   console.log('Stink name');
+    // }
+
+    // if (name.toLowerCase() === 'jay' && last.toLowerCase() === 'johnson') {
+    //   console.log('Coool Full Name.');
+    // } else if (name.toLowerCase() === 'emma' && last.toLowerCase() === 'hewitt') {
+    //   console.log('Coool Full Name.');
+    // } else {
+    //   console.log('Stink Full Name');
+    // }
+
+    // const name = 'WES'.toLowerCase();
+    // console.log(name);
+
+    // const isAwesomeName = 'awesome'.includes(name);
+    // if (isAwesomeName) {
+    //   console.log('MUCH AWESOME, VERY NAME');
+    // } else {
+    //   console.log('NOT AWESOME NAME');
+    // }
+
+    // function nameIsAwesome(name) {
+    //   return 'awesome'.includes(name);
+    // }
+    // if (nameIsAwesome('wes')) {
+    //   console.log('COOL NAME');
+    // }
+
+    // TRUTHY AND FALSY v
+    // const dog = 'Larry';
+    // if (dog) {
+    //   console.log('SUCH DOGE');
+    // } else {
+    //   console.log('NONE DOGGO');
+    // }
+
+    // TERNARY
+    const count = 4;
+    // let word;
+    // if (count === 1) {
+    //   word = 'ITEM';
+    // } else {
+    //   word = 'ITEMS';
+    // }
+
+    // 1:CONDITION / 2:DO IF TRUE / 3: DO IF FALSE
+    // const word = count === 1 ? 'ITEM' : 'ITEMS';
+
+    // const sentence = `YOU HAVE ${count} ${word} IN YOUR CART`;
+    const sentence = `YOU HAVE ${count} ITEM${count === 1 ? '' : 'S'} IN YOUR CART`;
+    console.log(sentence);
+
+    //  AND AND TRICK!
+    function check1() {
+      console.log('RUNNING CHECK 1');
+      return false;
+    }
+    function check2() {
+      console.log('RUNNING CHECK 2');
+      return true;
+    }
+    function check3() {
+      console.log('RUNNING CHECK 3');
+      return true;
+    }
+    if (check1() && check2() && check3()) {
+      console.log('ALL CHECKED OUT');
+    } else {
+      console.log('SOME CHECKS FAILED');
     }
 
+    function showAdmin() {
+      console.log('SHOWING ADMIN BAR');
+    }
+    const isAdmin = true;
+    // TO RETURN IF CONDITION NOT MET JUST RETURN NULL
+    // isAdmin ? showAdmin() : null;
+
+    isAdmin ? showAdmin() : null;
+    isAdmin && showAdmin();
   </script>
 </body>
 
