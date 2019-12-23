@@ -10,8 +10,65 @@
 
 
 <body>
-  <img width="200" src="./turtle.png" alt="Turt" class="turt">
+  <style>
+    .turtle {
+      position: relative;
+      --x: 0;
+      --y: 0;
+      --rotateX: 0;
+      transform: translateX(var(--x)) translateY(var(--y)) rotateY(var(--rotateX));
+      transition: transform 0.1s;
+    }
+  </style>
 
+  <img width="200" src="./turtle.png" alt="Turt" class="turtle">
+
+  <script>
+    /* eslint-disable */
+
+    let x = 0;
+    let y = 0;
+    let speed = 50;
+    let flipped = false;
+
+    const turtle = document.querySelector('.turtle');
+    function handleKeyDown(event) {
+      // IF ITS NOT ARROW KEY THEN IGNORE
+      if (!event.key.includes('Arrow')) {
+        return;
+      }
+
+      switch (event.key) {
+        case 'ArrowUp':
+          y = y - 1;
+          break;
+        case 'ArrowDown':
+          y = y + 1;
+          break;
+        case 'ArrowLeft':
+          x = x - 1;
+          flipped = true;
+          break;
+        case 'ArrowRight':
+          x = x + 1;
+          flipped = false;
+          break;
+        default:
+          console.log('NOT VALID');
+          break;
+      }
+      console.log(x, y);
+      console.log(event.key);
+      turtle.setAttribute('style', `
+      --x: ${x * speed}px;
+      --y: ${y * speed}px;
+      --rotateX: ${flipped ? '180deg' : '0'};`);
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+  </script>
 </body>
 
 </html>
+<!-- 
+--rotate: ${flipped ? '180deg' : '0'};  -->
